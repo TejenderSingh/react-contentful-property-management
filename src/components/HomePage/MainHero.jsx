@@ -21,7 +21,7 @@ const MainHero = () => {
           <div className="mt-8 text-center py-2">
             <Link
               to="/properties"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6"
             >
               Find Properties
             </Link>

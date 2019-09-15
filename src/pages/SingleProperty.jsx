@@ -41,12 +41,9 @@ class SingleRoom extends Component {
     const {
       name,
       description,
-      capacity,
-      size,
       featured,
       price,
       extras,
-      breakfast,
       bedroom,
       bathroom,
       garage,

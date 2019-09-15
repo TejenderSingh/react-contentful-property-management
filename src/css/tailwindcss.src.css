@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* **********************************Slider********************************** */
 input[type="range"] {
   height: 20px;
 }
@@ -74,6 +75,152 @@ input[type="range"]:focus::-ms-fill-lower {
 input[type="range"]:focus::-ms-fill-upper {
   background: #fff;
 }
-a.active {
-  color: #38b2ac;
+
+/* **********************************Navbar********************************** */
+.main-nav .navbar a.active {
+  background: #2d3748;
+  color: white;
+}
+
+/* **********************************Side Nav********************************** */
+.side-nav {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  color: #f7fafc;
+  z-index: 110;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform 0.25s ease-in-out;
+}
+.side-nav.open {
+  transform: translateX(0);
+}
+
+.side-nav .navbar a.active {
+  color: #667eea;
+}
+/* **********************************Checkbox on filter page********************************** */
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label {
+  position: relative;
+  cursor: pointer;
+}
+input[type="checkbox"] + label:before {
+  content: "";
+  background: #fff;
+  border: 2px solid #2d3748;
+  border-radius: 3px;
+  height: 16px;
+  width: 16px;
+  margin-top: 4px;
+  position: absolute;
+  left: 0;
+}
+input[type="checkbox"] + label:after {
+  content: "";
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: transparent transparent #2d3748 #2d3748;
+  width: 10px;
+  height: 5px;
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  opacity: 0;
+  transform: scale(1.2) rotate(-45deg);
+  transition: transform 0.1s linear;
+}
+
+input[type="checkbox"]:checked + label:after {
+  transform: scale(1) rotate(-45deg);
+  opacity: 1;
+}
+
+/* **********************************Map on Contact page********************************** */
+figure {
+  width: 100%;
+  position: relative;
+}
+figure .mapImg {
+  width: 100%;
+  margin-bottom: 2rem;
+  vertical-align: top;
+  box-shadow: 5px 5px 60px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
+figure .icon {
+  position: absolute;
+  top: 25px;
+  left: 55%;
+  cursor: auto;
+  font-size: 30px;
+  z-index: 100;
+  color: #ea4335;
+}
+.tooltip {
+  display: flex;
+  position: static;
+  top: 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 5px 5px 50px reba(0, 0, 0, 0.2);
+  width: 100%;
+  z-index: -1;
+  opacity: 1;
+  transition: 0.3s ease all;
+  transform: translateY(0);
+}
+.tooltip::after {
+  content: "";
+  display: none;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #fff;
+  position: absolute;
+  bottom: -15px;
+  left: calc(50% - 15px);
+}
+.tooltip.active {
+  opacity: 1;
+  transform: translateY(0px);
+  z-index: 95;
+}
+.tooltip .thumb {
+  width: 40%;
+}
+.tooltip .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 0 0 16px;
+  vertical-align: top;
+}
+
+@media (min-width: 576px) {
+  figure .mapImg {
+    margin-bottom: 0;
+  }
+  figcaption .icon {
+    top: 32%;
+    cursor: pointer;
+  }
+  figcaption .tooltip {
+    position: absolute;
+    opacity: 0;
+    width: 28rem;
+    margin-bottom: 0;
+    transform: translateY(10px);
+  }
+  .tooltip::after {
+    content: "";
+    display: inline-block;
+  }
 }

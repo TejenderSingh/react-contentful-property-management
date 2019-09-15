@@ -17,6 +17,7 @@ const PropertyCard = ({ pro }) => {
     bathroom,
     garage
   } = pro;
+
   return (
     <Link
       to={`properties/${slug}`}

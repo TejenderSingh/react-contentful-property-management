@@ -10,7 +10,8 @@ class PropertyProvider extends Component {
     featuredProperties: [],
     loading: true,
     type: "all",
-    bedroom: 1,
+    bedroom: 0,
+    minBedroom: 0,
     price: 0,
     minPrice: 0,
     maxPrice: 0,
@@ -26,13 +27,17 @@ class PropertyProvider extends Component {
       let properties = this.formatData(response.items);
       let featuredProperties = properties.filter(property => property.featured);
       let maxPrice = Math.max(...properties.map(property => property.price));
+      let minBedroom = Math.min(
+        ...properties.map(property => property.bedroom)
+      );
       this.setState({
         properties,
         featuredProperties,
         loading: false,
         sortedProperties: [...properties],
         price: maxPrice,
-        maxPrice
+        maxPrice,
+        minBedroom
       });
     } catch (error) {
       console.log(error);
@@ -40,6 +45,7 @@ class PropertyProvider extends Component {
   };
   componentDidMount() {
     this.getData();
+    console.log("hello from Pro context");
   }
   formatData = items => {
     let tempItems = items.map(item => {
@@ -57,12 +63,13 @@ class PropertyProvider extends Component {
     return property;
   };
   resetPros = () => {
-    const { properties, maxPrice } = this.state;
+    const { properties, maxPrice, minBedroom } = this.state;
+
     this.setState({
       sortedProperties: properties,
       type: "all",
       price: maxPrice,
-      bedroom: 1,
+      bedroom: minBedroom,
       pets: false
     });
   };
