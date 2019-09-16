@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 const CardsContainer = ({ children }) => {
@@ -18,4 +19,7 @@ const CardsContainer = ({ children }) => {
   );
 };
 
+CardsContainer.propTypes = {
+  children: PropTypes.node.isRequired
+};
 export default CardsContainer;

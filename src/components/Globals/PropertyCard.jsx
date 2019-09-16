@@ -72,7 +72,9 @@ PropertyCard.propTypes = {
     price: PropTypes.number.isRequired,
     featured: PropTypes.bool.isRequired,
     bedroom: PropTypes.number.isRequired,
-    bathroom: PropTypes.number.isRequired
+    bathroom: PropTypes.number.isRequired,
+    garage: PropTypes.number.isRequired,
+    location: PropTypes.string.isRequired
   })
 };
 export default PropertyCard;

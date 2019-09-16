@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { SideNavContext } from "../../../SideNavContext";
@@ -33,4 +34,10 @@ const NavItem = ({ ulClasses, navClasses, linkClasses, pd }) => {
   );
 };
 
+NavItem.propTypes = {
+  ulClasses: PropTypes.string.isRequired,
+  navClasses: PropTypes.string,
+  linkClasses: PropTypes.string.isRequired,
+  pd: PropTypes.string
+};
 export default NavItem;

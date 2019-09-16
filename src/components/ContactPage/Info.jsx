@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactInfo = () => {
   return (
-    <div className="px-6 py-8 lg:py-12 lg:w-1/2 text-gray-700">
+    <div className="px-6 pt-8 lg:py-12 lg:w-1/2 text-gray-700">
       <p className="mb-4">
         Feel free to give us a call on the numbers below or use the enquiry form
         to drop us an email.

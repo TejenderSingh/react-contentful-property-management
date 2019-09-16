@@ -1,5 +1,5 @@
+import PropTypes from "prop-types";
 import React from "react";
-
 const ServiceCard = ({ title, borderColor, img, description }) => {
   return (
     <div className="overflow-hidden rounded shadow-md bg-white w-full max-w-md">
@@ -20,4 +20,10 @@ const ServiceCard = ({ title, borderColor, img, description }) => {
   );
 };
 
+ServiceCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  borderColor: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
 export default ServiceCard;

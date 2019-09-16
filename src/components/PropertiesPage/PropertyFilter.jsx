@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import { PropertyContext } from "../../PropertyContext";
 
@@ -142,4 +143,7 @@ const RoomFilter = ({ pros }) => {
   );
 };
 
+RoomFilter.propTypes = {
+  pros: PropTypes.array.isRequired
+};
 export default RoomFilter;

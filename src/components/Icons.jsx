@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 const Icons = ({ children, name, number }) => {
@@ -14,4 +15,9 @@ const Icons = ({ children, name, number }) => {
   );
 };
 
+Icons.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired
+};
 export default Icons;

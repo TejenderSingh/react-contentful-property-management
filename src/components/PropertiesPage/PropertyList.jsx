@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import CardsContainer from "../CardsContainer";
 import PropertyCard from "../Globals/PropertyCard";
@@ -16,4 +17,7 @@ const PropertyList = ({ pros }) => {
   );
 };
 
+PropertyList.propTypes = {
+  pros: PropTypes.array.isRequired
+};
 export default PropertyList;

@@ -22,7 +22,6 @@ class FeaturedRooms extends Component {
             <CardsContainer>{properties}</CardsContainer>
           )}
         </div>
-        {/* <CardsContainer>{!loading ? <Loading /> : properties}</CardsContainer> */}
       </>
     );
   }

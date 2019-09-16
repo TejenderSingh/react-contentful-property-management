@@ -1,4 +1,6 @@
+import PropTypes from "prop-types";
 import React from "react";
+
 const Stat = ({ title, subtitle }) => {
   return (
     <div className="col-span-8 sm:col-span-4 lg:col-span-2">
@@ -12,4 +14,8 @@ const Stat = ({ title, subtitle }) => {
   );
 };
 
+Stat.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired
+};
 export default Stat;

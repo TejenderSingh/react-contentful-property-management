@@ -89,7 +89,7 @@ const Form = () => {
         <div className={`flex justify-center`}>
           <button
             type="submit"
-            className={`bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded`}
+            className={`bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded`}
           >
             Submit
           </button>

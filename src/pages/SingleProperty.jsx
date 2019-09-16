@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FaBath, FaBed, FaCar, FaDog } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ScrollToTopOnMount from "../components/Globals/ScrollToTop";
 import Icons from "../components/Icons";
 import NoSearchResults from "../components/NoSearchResults";
 import StyledHero from "../components/StyledHero";
@@ -53,6 +54,7 @@ class SingleRoom extends Component {
     const [mainImg, ...defaultImg] = images;
     return (
       <div className="bg-gray-100">
+        <ScrollToTopOnMount />
         <StyledHero img={mainImg} height="calc(60vh - 72px)" />
         <div className="container mx-auto py-8 px-4 text-gray-800 flex flex-col-reverse lg:flex-row">
           <div className="main-content w-full lg:w-2/3 mr-0 lg:mr-12">

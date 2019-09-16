@@ -45,7 +45,6 @@ class PropertyProvider extends Component {
   };
   componentDidMount() {
     this.getData();
-    console.log("hello from Pro context");
   }
   formatData = items => {
     let tempItems = items.map(item => {

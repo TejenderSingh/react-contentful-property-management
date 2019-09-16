@@ -6,10 +6,7 @@ import PropertyList from "./PropertyList";
 
 function PropertyContainer({ context }) {
   const { loading, sortedProperties, properties, resetPros } = context;
-  useEffect(() => {
-    resetPros();
-    console.log("hello from Pro container");
-  }, [resetPros]);
+  useEffect(() => resetPros(), [resetPros]);
 
   if (loading) {
     return <Loading />;
