@@ -1,12 +1,19 @@
 import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import { PropertyContext } from "../../PropertyContext";
+import ThemeContext from "../../ThemeContext";
 
 const getUniqueVal = (items, value) => {
   return [...new Set(items.map(item => item[value]).sort())];
 };
 const RoomFilter = ({ pros }) => {
   const context = useContext(PropertyContext);
+  const { darkMode, dark, light } = useContext(ThemeContext);
+  const theme = darkMode ? dark : light;
+  let sliderClasses = "slider light w-full h-full md:w-1/2 px-3 mb-3 md:mb-0";
+  if (darkMode) {
+    sliderClasses = "slider dark w-full h-full md:w-1/2 px-3 mb-3 md:mb-0";
+  }
   const {
     handleChange,
     type,
@@ -35,7 +42,7 @@ const RoomFilter = ({ pros }) => {
   });
 
   return (
-    <section className="container mx-auto bg-gray-200 py-6 rounded">
+    <section className={`container mx-auto ${theme.formBg} py-6 rounded`}>
       <form className="w-full py-4">
         {/* select type */}
         <div className="flex flex-wrap">
@@ -51,7 +58,7 @@ const RoomFilter = ({ pros }) => {
                 name="type"
                 id="type"
                 value={type}
-                className="block appearance-none w-full cursor-pointer bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 capitalize"
+                className={`block appearance-none w-full cursor-pointer ${theme.inputBg} ${theme.fgSec} border ${theme.border} py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:${theme.inputBg} focus:border-gray-500 capitalize`}
                 onChange={handleChange}
               >
                 {proTypes}
@@ -80,7 +87,7 @@ const RoomFilter = ({ pros }) => {
             </label>
             <div className="relative">
               <select
-                className="block appearance-none w-full bg-white cursor-pointer border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className={`block appearance-none w-full cursor-pointer ${theme.inputBg} ${theme.fgSec} border ${theme.border} py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:${theme.inputBg} focus:border-gray-500`}
                 id="bedroom"
                 value={bedroom}
                 name="bedroom"
@@ -104,7 +111,7 @@ const RoomFilter = ({ pros }) => {
 
         {/* Room price */}
         <div className="flex flex-wrap">
-          <div className="w-full h-full md:w-1/2 px-3 mb-3 md:mb-0">
+          <div className={`${sliderClasses}`}>
             <label
               htmlFor="price"
               className="block uppercase tracking-wider text-gray-700 text-xs font-bold mb-2"
@@ -131,7 +138,10 @@ const RoomFilter = ({ pros }) => {
                 checked={pets}
                 onChange={handleChange}
               />
-              <label htmlFor="pets" className="pl-6">
+              <label
+                htmlFor="pets"
+                className="pl-6 uppercase text-gray-700 font-bold"
+              >
                 Pets
               </label>
             </div>

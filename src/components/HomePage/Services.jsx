@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../../../src/ThemeContext";
 import commercial from "../../images/commercial.jpg";
 import propertyManagement from "../../images/property-management.jpg";
 import residential from "../../images/room-1.jpeg";
@@ -7,9 +8,11 @@ import Title from "../Globals/Title";
 import ServiceCard from "./ServiceCard";
 
 const Services = () => {
+  const { darkMode, light, dark } = useContext(ThemeContext);
+  const theme = darkMode ? dark : light;
   return (
     <>
-      <div className="bg-white py-12">
+      <div className={`${theme.sectionBg} py-12`}>
         <Title title="Services" />
         <CardsContainer>
           <ServiceCard

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import ThemeContext from "../../../src/ThemeContext";
 import heroImg from "../../images/suburbs.svg";
 
 const MainHero = () => {
+  const { darkMode, light, dark } = useContext(ThemeContext);
+  const theme = darkMode ? dark : light;
   return (
     <div className="flex justify-center container mx-auto lg:px-6">
       <div className="lg:h-xl flex flex-col lg:flex-row-reverse">
@@ -10,10 +13,14 @@ const MainHero = () => {
           <img src={heroImg} alt="Apartments" className="w-full" />
         </div>
         <div className=" w-full lg:w-3/5 pt-8 pb-12 lg:py-8 px-4 sm:px-8 lg:px-0 self-center lg:mr-20">
-          <h1 className="text-4xl xl:text-5xl md:text-center lg:text-left text-gray-800 font-extrabold leading-tight">
+          <h1
+            className={`text-4xl xl:text-5xl md:text-center lg:text-left ${theme.fg} font-extrabold leading-tight`}
+          >
             Find Your Dream Home
           </h1>
-          <p className="text-lg font-semibold mt-4 leading-normal text-gray-700">
+          <p
+            className={`text-lg font-semibold mt-4 leading-normal ${theme.fgSec}`}
+          >
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto,
             architecto. Lorem ipsum dolor sit amet consectetur, adipisicing
             elit. Lorem ipsum dolor sit amet.

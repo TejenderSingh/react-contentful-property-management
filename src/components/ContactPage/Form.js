@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../../ThemeContext";
 import useForm from "./useForm";
 import validate from "./Validation";
 
 const Form = () => {
+  const { darkMode, dark, light } = useContext(ThemeContext);
+  const theme = darkMode ? dark : light;
   const { values, errors, handleChange, handleSubmit } = useForm(
     success,
     validate
@@ -26,7 +29,12 @@ const Form = () => {
               Name
             </label>
             <input
-              className={`appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-400 focus:border-gray-500 ${errors.name &&
+              className={`
+              appearance-none block w-full ${theme.inputBg} ${
+                theme.inputFg
+              } border ${
+                theme.border
+              } rounded py-3 px-4 leading-tight focus:outline-none ${errors.name &&
                 "border-red-500"}`}
               name="name"
               id="name"
@@ -47,8 +55,11 @@ const Form = () => {
               email
             </label>
             <input
-              className={`appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-400 focus:border-gray-500 ${errors.email &&
-                "border-red-500"}`}
+              className={`appearance-none block w-full ${theme.inputBg} 
+              ${theme.inputFg} border 
+              ${theme.border}
+              rounded py-3 px-4 leading-tight focus:outline-none 
+              ${errors.email && "border-red-500"}`}
               name="email"
               id="email"
               type="email"
@@ -70,8 +81,12 @@ const Form = () => {
           </label>
           <div className="rounded">
             <textarea
-              className={`appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-400 focus:border-gray-500 ${errors.name &&
-                "border-red-500"}`}
+              className={`appearance-none block w-full ${theme.inputBg} 
+              ${theme.inputFg} border 
+              ${
+                theme.border
+              } rounded py-3 px-4 leading-tight focus:outline-none 
+              ${errors.name && "border-red-500"}`}
               name="description"
               id="description"
               onChange={handleChange}

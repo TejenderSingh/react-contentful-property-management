@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import ThemeContext from "../ThemeContext";
 
 const Error = () => {
+  const { darkMode, dark, light } = useContext(ThemeContext);
+  const theme = darkMode ? dark : light;
   return (
     <div className="flex flex-col justify-center px-8 lg:px-20 py-20">
       <div className="max-w-4xl container mx-auto">
@@ -24,7 +27,7 @@ const Error = () => {
           <path
             d="m 520.42569,11.528722 c -85.94407,0 -147.651,55.13938 -147.651,183.797908 0,145.813 61.70691,184.41057 147.651,184.41057 85.94409,0 151.327,-42.27352 151.327,-184.41057 -5e-5,-151.939598 -65.38293,-183.797908 -151.327,-183.797908 z m 0.56495,319.808368 c -59.52686,0 -90.62592,-34.92288 -90.62592,-135.9163 0,-89.11185 32.37209,-136.104608 91.899,-136.104608 59.52691,0 91.899,30.86774 91.899,136.104608 -9e-5,98.44736 -33.64522,135.9163 -93.17208,135.9163 z"
             id="path938"
-            style={{ fill: "#353b48" }}
+            style={{ fill: `#6c63ff` }}
           />
           <path
             d="M 321.31131,278.03569 H 285.777 V 173.39631 a 20.95585,20.95585 0 0 0 -20.95583,-20.95583 h -8.32638 a 20.95585,20.95585 0 0 0 -20.95586,20.95585 V 278.03569 H 135.30885 a 11.96327,11.96327 0 0 1 -10.57763,-17.552 L 230.81362,59.703352 a 20.95585,20.95585 0 0 0 -9.58038,-28.73887 l -6.26231,-2.9572 a 20.95585,20.95585 0 0 0 -27.4293,9.07005 L 58.16016,279.10988 A 28.41578,28.41578 0 0 0 54.80432,292.506 v 0 a 28.41583,28.41583 0 0 0 28.41584,28.41583 h 152.31877 v 66.16727 a 25.119,25.119 0 0 0 25.119,25.119 h 5e-5 a 25.119,25.119 0 0 0 25.119,-25.119 v -66.16723 h 35.53428 a 21.44307,21.44307 0 0 0 21.44307,-21.44307 v 0 a 21.44307,21.44307 0 0 0 -21.44302,-21.44311 z"
@@ -237,12 +240,12 @@ const Error = () => {
           />
         </svg>
       </div>
-      <div className="text-center mt-8 font-bold text-gray-800 leading-snug">
+      <div className={`text-center mt-8 font-bold ${theme.fgSec} leading-snug`}>
         <h1 className="text-2xl ">Looks like you're lost</h1>
         <div className="mt-8 text-center py-2">
           <Link
             to="/"
-            className="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 rounded"
+            className={`bg-indigo-600 hover:bg-gray-900 text-white py-2 px-4 rounded`}
           >
             Go Back Home
           </Link>

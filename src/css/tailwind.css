@@ -8192,53 +8192,74 @@ video {
 
 /* **********************************Slider********************************** */
 
-input[type="range"] {
+.slider input[type="range"] {
   height: 20px;
 }
 
-input[type="range"]:focus {
+.slider input[type="range"]:focus {
   outline: none;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
+.slider input[type="range"]::-webkit-slider-runnable-track {
   height: 20px;
   cursor: pointer;
-  background: #fff;
   border-radius: 10px;
+  margin-left: -2px;
+  margin-right: -2px;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  height: 20px;
+.slider.dark input[type="range"]::-webkit-slider-runnable-track {
+  background: #2d3748;
+}
+
+.slider input[type="range"]::-webkit-slider-thumb {
+  height: 18px;
   width: 30px;
   border-radius: 12px;
   background: #353b48;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: 0px;
+  margin-top: 1px;
 }
 
-input[type="range"]:focus::-webkit-slider-runnable-track {
+.slider.dark input[type="range"]::-webkit-slider-thumb {
   background: #fff;
 }
 
-input[type="range"]::-moz-range-track {
+.slider input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #fff;
+}
+
+.slider.dark input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #2d3748;
+}
+
+.slider input[type="range"]::-moz-range-track {
   height: 20px;
   cursor: pointer;
-  background: #353b48;
+  background: #fff;
   border-radius: 12px;
 }
 
-input[type="range"]::-moz-range-thumb {
+.slider.dark input[type="range"]::-moz-range-track {
+  background: #2d3748;
+}
+
+.slider input[type="range"]::-moz-range-thumb {
   box-shadow: 0px 0px 0px #000000;
   border: 0px solid #000000;
   height: 20px;
   width: 30px;
   border-radius: 12px;
-  background: #fff;
+  background: #353b48;
   cursor: pointer;
 }
 
-input[type="range"]::-ms-track {
+.slider input[type="range"]::-moz-range-thumb {
+  background: #fff;
+}
+
+.slider input[type="range"]::-ms-track {
   height: 20px;
   cursor: pointer;
   background: transparent;
@@ -8246,19 +8267,19 @@ input[type="range"]::-ms-track {
   color: transparent;
 }
 
-input[type="range"]::-ms-fill-lower {
+.slider input[type="range"]::-ms-fill-lower {
   background: #fff;
   border: 0px solid #000000;
   border-radius: 28px;
 }
 
-input[type="range"]::-ms-fill-upper {
+.slider input[type="range"]::-ms-fill-upper {
   background: #fff;
   border: 0px solid #000000;
   border-radius: 28px;
 }
 
-input[type="range"]::-ms-thumb {
+.slider input[type="range"]::-ms-thumb {
   margin-top: 1px;
   box-shadow: 0px 0px 0px #000000;
   border: 0px solid #000000;
@@ -8269,11 +8290,11 @@ input[type="range"]::-ms-thumb {
   cursor: pointer;
 }
 
-input[type="range"]:focus::-ms-fill-lower {
+.slider input[type="range"]:focus::-ms-fill-lower {
   background: #fff;
 }
 
-input[type="range"]:focus::-ms-fill-upper {
+.slider input[type="range"]:focus::-ms-fill-upper {
   background: #fff;
 }
 
@@ -8291,7 +8312,7 @@ input[type="range"]:focus::-ms-fill-upper {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  /* background: #ffffff; */
   color: #f7fafc;
   z-index: 110;
   position: fixed;
@@ -8319,6 +8340,7 @@ input[type="checkbox"] {
 input[type="checkbox"] + label {
   position: relative;
   cursor: pointer;
+  font-size: 0.75rem;
 }
 
 input[type="checkbox"] + label:before {
@@ -8351,6 +8373,7 @@ input[type="checkbox"] + label:after {
 input[type="checkbox"]:checked + label:after {
   transform: scale(1) rotate(-45deg);
   opacity: 1;
+  top: 5px;
 }
 
 /* **********************************Map on Contact page********************************** */
@@ -8382,7 +8405,7 @@ figure .icon {
   display: flex;
   position: static;
   top: 0;
-  background: #fff;
+  background: #f7fafc;
   border-radius: 16px;
   box-shadow: 5px 5px 50px reba(0, 0, 0, 0.2);
   width: 100%;
@@ -8392,15 +8415,23 @@ figure .icon {
   transform: translateY(0);
 }
 
+.tooltip.dark {
+  background: #1a202c;
+}
+
 .tooltip::after {
   content: "";
   display: none;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 15px solid #fff;
+  border-top: 15px solid #f7fafc;
   position: absolute;
   bottom: -15px;
   left: calc(50% - 15px);
+}
+
+.tooltip.dark::after {
+  border-top: 15px solid #1a202c;
 }
 
 .tooltip.active {

@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { FaMapMarker } from "react-icons/fa";
 import mapImg from "../../images/map.png";
 import TooltipImg from "../../images/tooltip-img.jpg";
+import ThemeContext from "../../ThemeContext";
 // import "./Map.css";
 
 class Map extends Component {
+  static contextType = ThemeContext;
   tooltip = React.createRef();
   icon = React.createRef();
   state = {
@@ -78,7 +80,12 @@ class Map extends Component {
   }
 
   render() {
-    // let { iconX, iconY, tooltipHeight, tooltipWidth, ww } = this.state;
+    const { darkMode, dark, light } = this.context;
+    const theme = darkMode ? dark : light;
+    let tooltipClasses = "tooltip shadow-xl";
+    if (darkMode) {
+      tooltipClasses = "tooltip shadow-xl dark";
+    }
     return (
       <div className="px-6 pt-12 w-full">
         <main className="w-full max-w-5xl mx-auto">
@@ -88,7 +95,7 @@ class Map extends Component {
               <span className="icon" ref={this.icon}>
                 <FaMapMarker />
               </span>
-              <div className="tooltip" ref={this.tooltip}>
+              <div className={`${tooltipClasses}`} ref={this.tooltip}>
                 <div className="thumb">
                   <img src={TooltipImg} alt="Property Management" />
                 </div>
@@ -96,13 +103,17 @@ class Map extends Component {
                   className="flex flex-col justify-between p-6"
                   style={{ width: "60%" }}
                 >
-                  <h3 className="text-indigo-700 text-2xl font-semibold leading-none mb-4">
+                  <h3
+                    className={`${theme.tooltipTitle} text-2xl font-semibold leading-none mb-4`}
+                  >
                     Lux Property
                   </h3>
                   <p className="text-gray-600 text-sm mb-6 leading-tight">
                     100 Main Street, Christchurch 1234, New Zealand
                   </p>
-                  <p className="text-gray-900 mb-6 text-base leading-tight">
+                  <p
+                    className={`${theme.tooltipFg} mb-6 text-base leading-tight`}
+                  >
                     We are property managers Lorem ipsum dolor sit, amet
                     consectetur adipisicing elit. Delectus consectetur. Lorem
                     ipsum dolor sit, amet consectetur adipisicing elit. Delectus

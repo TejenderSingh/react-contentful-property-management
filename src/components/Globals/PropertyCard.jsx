@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useContext } from "react";
 import { FaBath, FaBed, FaCar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import defaultImg from "../../images/room-1.jpeg";
+import ThemeContext from "../../ThemeContext";
 import Icons from "../Icons";
 
 const PropertyCard = ({ pro }) => {
+  const { darkMode, light, dark } = useContext(ThemeContext);
+  const theme = darkMode ? dark : light;
   const {
     name,
     slug,
@@ -21,7 +24,7 @@ const PropertyCard = ({ pro }) => {
   return (
     <Link
       to={`properties/${slug}`}
-      className="room-card rounded overflow-hidden shadow-lg bg-white w-full max-w-md"
+      className={`room-card rounded overflow-hidden shadow-lg ${theme.bg} w-full max-w-md`}
     >
       <div className="relative pb-2/3">
         <img
@@ -33,15 +36,21 @@ const PropertyCard = ({ pro }) => {
       <div className="p-6">
         <div className="flex items-baseline">
           {featured ? (
-            <span className="inline-block px-2 mr-2 bg-teal-200 text-teal-800 text-xs rounded rounded-full uppercase font-bold">
+            <span
+              className={`inline-block px-2 mr-2 ${theme.tagBg} ${theme.tagFg} text-xs rounded rounded-full uppercase font-bold`}
+            >
               new
             </span>
           ) : null}
-          <div className="font-bold text-xl capitalize leading-relaxed mb-1 truncate">
+          <div
+            className={`font-bold text-xl ${theme.fg} capitalize leading-relaxed mb-1 truncate`}
+          >
             {name}
           </div>
         </div>
-        <p className="text-gray-700 text-base truncate leading-relaxed capitalize">
+        <p
+          className={`text-gray-700 text-base truncate leading-relaxed capitalize`}
+        >
           {location}
         </p>
         <div className="font-semibold bg-green-20 mb-3">
